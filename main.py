@@ -1,0 +1,18 @@
+from listas import lista_ligada
+
+lista = lista_ligada.ListaLigada()
+lista.inserir_elemento(1)
+lista.inserir_elemento(1)
+lista.inserir_elemento(10)
+lista.inserir_elemento(12)
+lista.inserir_elemento(132)
+lista.inserir_elemento(2)
+print(lista)
+print(lista.tamanho())
+print(lista.existe_elemento(133))
+print(lista.obter_elemento(3))
+lista.inserir_elemento_posicao(3, 3)
+print(lista)
+print(lista.indice(11))
+lista.remover_elemento(132)
+print(lista)
