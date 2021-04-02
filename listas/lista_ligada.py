@@ -37,7 +37,7 @@ class ListaLigada:
 
     def obter_no(self, posicao):
         no_atual = self.primeiro_no
-        for i in range(1, posicao):
+        for i in range(posicao):
             if not no_atual:
                 return None
             no_atual = no_atual.proximo
