@@ -13,7 +13,7 @@ class TestInit(TestListaLigada):
         self.assertIsNone(self.lista.primeiro_no)
 
     def test_initial_tamanho(self):
-        self.assertEqual(self.lista.tamanho, 0)
+        self.assertEqual(0, self.lista.tamanho)
 
 
 class TestInserirElemento(TestListaLigada):
@@ -21,7 +21,7 @@ class TestInserirElemento(TestListaLigada):
         self.lista.inserir_elemento(10)
         self.assertIsNotNone(self.lista.primeiro_no)
         self.assertIsNone(self.lista.primeiro_no.proximo)
-        self.assertEqual(self.lista.tamanho, 1)
+        self.assertEqual(1, self.lista.tamanho)
 
     def test_proximo_no(self):
         self.lista.inserir_elemento(1)
@@ -30,7 +30,7 @@ class TestInserirElemento(TestListaLigada):
         self.assertIsNotNone(self.lista.primeiro_no.proximo)
         self.assertEqual(self.lista.primeiro_no.proximo.elemento, 2)
         self.assertIsNone(self.lista.primeiro_no.proximo.proximo)
-        self.assertEqual(self.lista.tamanho, 2)
+        self.assertEqual(2, self.lista.tamanho)
 
 
 class TestEstaVazia(TestListaLigada):
@@ -102,7 +102,7 @@ class TestObterElemento(TestListaLigada):
         self.lista.inserir_elemento(20)
         self.lista.inserir_elemento(30)
         self.lista.inserir_elemento(40)
-        self.assertEqual(self.lista.obter_elemento(1), 10)
-        self.assertEqual(self.lista.obter_elemento(2), 20)
-        self.assertEqual(self.lista.obter_elemento(3), 30)
-        self.assertEqual(self.lista.obter_elemento(4), 40)
+        self.assertEqual(0, self.lista.indice(10))
+        self.assertEqual(1, self.lista.indice(20))
+        self.assertEqual(2, self.lista.indice(30))
+        self.assertEqual(3, self.lista.indice(40))

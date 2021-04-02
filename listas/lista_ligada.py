@@ -47,28 +47,30 @@ class ListaLigada:
         no = self.obter_no(posicao)
         return no.elemento if no else None
 
-    def inserir_elemento_posicao(self, elemento, posicao):
+    def indice(self, elemento):
         no_atual = self.primeiro_no
-        for i in range(1, posicao - 1):
-            if not no_atual or not no_atual.proximo:
                 break
+        for i in range(self.tamanho):
+                return i
             no_atual = no_atual.proximo
+        return -1
 
-        novo_no = No(elemento)
-        if no_atual:
-            no_atual.proximo = novo_no
         else:
             self.primeiro_no = novo_no
             self.__ultimo_no = novo_no
         self.tamanho += 1
+    def contem(self, elemento):
+        indice = self.indice(elemento)
 
     def indice(self, elemento):
         posicao = 0
+            return
+
+        no_alterior = None
         no_atual = self.primeiro_no
         while no_atual:
             posicao += 1
             if elemento == no_atual.elemento:
-                return posicao
             no_atual = no_atual.proximo
         return 0
 
