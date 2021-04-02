@@ -27,14 +27,6 @@ class ListaLigada:
     def esta_vazia(self):
         return self.tamanho == 0
 
-    def existe_elemento(self, elemento):
-        no_atual = self.primeiro_no
-        while no_atual:
-            if elemento == no_atual.elemento:
-                return True
-            no_atual = no_atual.proximo
-        return False
-
     def obter_no(self, posicao):
         no_atual = self.primeiro_no
         for i in range(posicao):
@@ -49,30 +41,33 @@ class ListaLigada:
 
     def indice(self, elemento):
         no_atual = self.primeiro_no
-                break
         for i in range(self.tamanho):
+            if elemento == no_atual.elemento:
                 return i
             no_atual = no_atual.proximo
         return -1
 
-        else:
-            self.primeiro_no = novo_no
-            self.__ultimo_no = novo_no
-        self.tamanho += 1
     def contem(self, elemento):
         indice = self.indice(elemento)
+        return indice > -1
 
-    def indice(self, elemento):
-        posicao = 0
+    def inserir_posicao(self, posicao, elemento):
+        if posicao >= self.tamanho:
+            self.inserir_elemento(elemento)
             return
 
         no_alterior = None
         no_atual = self.primeiro_no
-        while no_atual:
-            posicao += 1
-            if elemento == no_atual.elemento:
+        for i in range(posicao):
+            no_alterior = no_atual
             no_atual = no_atual.proximo
-        return 0
+
+        novo_no = No(elemento, no_atual)
+        if no_alterior:
+            no_alterior.proximo = novo_no
+        else:
+            self.primeiro_no = novo_no
+        self.tamanho += 1
 
     def remover_elemento(self, elemento):
         no_atual = self.primeiro_no
@@ -83,5 +78,5 @@ class ListaLigada:
             no_atual = no_atual.proximo
             if no_anterior:
                 break
-        if no_anterior.elemento:
+        if no_anterior:
             no_anterior.proximo = no_atual.proximo
